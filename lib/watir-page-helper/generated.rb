@@ -371,5 +371,18 @@ module WatirPageHelper
     def image name, identifier=nil, &block
       create_element_getter "#{name}", identifier, __method__, block
     end
+
+    # Generates a frame method to return a frame element.
+    # @param [Symbol] name The name of the frame element (used to generate the method)
+    # @param [optional, Hash] identifier A set of key, value pairs to identify the element
+    # @param block
+    # @return [Nil]
+    #
+    # @example Specify a frame to generate a method
+    #   table :my_element, :id => 'my_element'
+    #   page.my_element.exists?.should be_true
+    def frame name, identifier=nil, &block
+      create_element_getter "#{name}", identifier, __method__, block
+    end
   end
 end

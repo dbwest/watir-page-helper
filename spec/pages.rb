@@ -150,3 +150,9 @@ class PageHeadings < BasePageClass
   h5 :heading_five, :id => "myh5"
   h6 :heading_six, :id => "myh6"
 end
+
+class PageIFrame < BasePageClass
+  direct_url TEST_URL
+  frame :iframe, :id => "myiframe"
+  link(:ilink) { |page|  page.iframe.link(:text => 'Link in an iFrame') }
+end

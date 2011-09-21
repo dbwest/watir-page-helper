@@ -16,7 +16,7 @@ simple_elements = %w{h1 h2 h3 h4 h5 h6 div span p}
 texty_elements = simple_elements + %w{dl dd dt form li}
 clicky_elements = %w{link button}
 setty_elements = %w{text_field}
-non_extended_elements = %w{table image}
+non_extended_elements = %w{table image frame}
 
 with_template 'test.html' do |template|
   File.open 'features/support/test.html', 'w' do |f|

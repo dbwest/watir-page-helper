@@ -189,4 +189,11 @@ describe "Watir Page Helper" do
     page.heading_five_h5.exist?.should be_true
     page.heading_six_h6.exist?.should be_true
   end
+
+  it "should support elements within a iframe" do
+    page = PageIFrame.new @browser, true
+    page.iframe.exist?.should be_true
+    page.ilink_link.exist?.should be_true
+    page.ilink
+  end
 end
