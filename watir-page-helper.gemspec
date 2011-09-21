@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{watir-page-helper}
-  s.version = "0.2.0"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Alister Scott"]
-  s.date = %q{2011-07-29}
+  s.authors = [%q{Alister Scott}]
+  s.date = %q{2011-09-21}
   s.description = %q{This is a page helper for Watir/Watir-WebDriver that allows use easy access to elements. See watir.com}
   s.email = %q{alister.scott@gmail.com}
   s.extra_rdoc_files = [
@@ -26,9 +26,29 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "features/README.md",
+    "features/simple_elements/README.md",
+    "features/simple_elements/div.feature",
+    "features/simple_elements/frame.feature",
+    "features/simple_elements/h1.feature",
+    "features/simple_elements/h2.feature",
+    "features/simple_elements/h3.feature",
+    "features/simple_elements/h4.feature",
+    "features/simple_elements/h5.feature",
+    "features/simple_elements/h6.feature",
+    "features/simple_elements/p.feature",
+    "features/simple_elements/span.feature",
+    "features/step_definitions/steps.rb",
+    "features/support/env.rb",
     "lib/watir-page-helper.rb",
+    "lib/watir-page-helper/generated.rb",
+    "script/generate",
+    "script/templates/generated.rb.erb",
+    "script/templates/simple_element.feature.erb",
+    "script/templates/test.html.erb",
     "spec/example.rb",
     "spec/helper.rb",
+    "spec/iframe.html",
     "spec/pages.rb",
     "spec/test.html",
     "spec/test.png",
@@ -36,9 +56,9 @@ Gem::Specification.new do |s|
     "watir-page-helper.gemspec"
   ]
   s.homepage = %q{http://github.com/alisterscott/watir-page-helper}
-  s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.2}
+  s.licenses = [%q{MIT}]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.6}
   s.summary = %q{A page helper for Watir/Watir-WebDriver that allows use easy access to elements.}
   s.test_files = [
     "spec/example.rb",
@@ -58,6 +78,8 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_development_dependency(%q<yard>, [">= 0"])
       s.add_development_dependency(%q<bluecloth>, [">= 0"])
+      s.add_development_dependency(%q<cucumber>, [">= 0"])
+      s.add_development_dependency(%q<relish>, [">= 0"])
     else
       s.add_dependency(%q<watir-webdriver>, [">= 0.2.0"])
       s.add_dependency(%q<rspec>, [">= 0"])
@@ -66,6 +88,8 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<yard>, [">= 0"])
       s.add_dependency(%q<bluecloth>, [">= 0"])
+      s.add_dependency(%q<cucumber>, [">= 0"])
+      s.add_dependency(%q<relish>, [">= 0"])
     end
   else
     s.add_dependency(%q<watir-webdriver>, [">= 0.2.0"])
@@ -75,6 +99,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<yard>, [">= 0"])
     s.add_dependency(%q<bluecloth>, [">= 0"])
+    s.add_dependency(%q<cucumber>, [">= 0"])
+    s.add_dependency(%q<relish>, [">= 0"])
   end
 end
 
