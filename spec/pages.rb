@@ -156,3 +156,8 @@ class PageIFrame < BasePageClass
   frame :iframe, :id => "myiframe"
   link(:ilink) { |page|  page.iframe.link(:text => 'Link in an iFrame') }
 end
+
+class PageFileField < BasePageClass
+  direct_url TEST_URL
+  file_field :upload, :id => 'upload'
+end
