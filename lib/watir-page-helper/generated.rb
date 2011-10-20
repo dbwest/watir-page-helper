@@ -384,15 +384,5 @@ module WatirPageHelper
     def frame name, identifier=nil, &block
       create_element_getter "#{name}", identifier, __method__, block
     end
-
-    def file_field name, identifier=nil, &block
-      define_method(name) do
-        self.send("#{name}_file_field").value
-      end
-      define_method("#{name}=") do |value|
-        self.send("#{name}_file_field").set value
-      end
-      create_element_getter "#{name}_file_field", identifier, __method__, block
-    end
   end
 end

@@ -190,7 +190,31 @@ module WatirPageHelper
       end
       create_element_getter "#{name}_cell", identifier, 'td', block
     end
-
+    
+    
+    # Generates two file_field methods to:
+    # * return the text from a file field;
+    # * set a file field
+    #
+    # @param [Symbol] name The name of the file field element (used to generate the methods)
+    # @param [optional, Hash] identifier A set of key, value pairs to identify the element
+    # @param block
+    # @return [Nil]
+    #
+    # @example Specify a file_field to generate methods
+    # file_field :upload, :id => 'upload'
+    #  page.upload = image_path #set
+    #  page.upload.should == image_path #check
+    def file_field name, identifier=nil, &block
+      define_method(name) do
+        self.send("#{name}_file_field").value
+      end
+      define_method("#{name}=") do |value|
+        self.send("#{name}_file_field").set value
+      end
+      create_element_getter "#{name}_file_field", identifier, __method__, block
+    end
+    
     private
 
     def create_element_getter name, identifier, type, block
