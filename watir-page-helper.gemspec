@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{watir-page-helper}
-  s.version = "0.3.0"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Alister Scott}]
-  s.date = %q{2011-09-21}
+  s.date = %q{2011-10-20}
   s.description = %q{This is a page helper for Watir/Watir-WebDriver that allows use easy access to elements. See watir.com}
   s.email = %q{alister.scott@gmail.com}
   s.extra_rdoc_files = [
@@ -29,7 +29,6 @@ Gem::Specification.new do |s|
     "features/README.md",
     "features/simple_elements/README.md",
     "features/simple_elements/div.feature",
-    "features/simple_elements/frame.feature",
     "features/simple_elements/h1.feature",
     "features/simple_elements/h2.feature",
     "features/simple_elements/h3.feature",
@@ -49,6 +48,7 @@ Gem::Specification.new do |s|
     "spec/example.rb",
     "spec/helper.rb",
     "spec/iframe.html",
+    "spec/image.png",
     "spec/pages.rb",
     "spec/test.html",
     "spec/test.png",
