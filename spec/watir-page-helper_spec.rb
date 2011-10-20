@@ -196,4 +196,12 @@ describe "Watir Page Helper" do
     page.ilink_link.exist?.should be_true
     page.ilink
   end
+
+  it 'should support file upload fields' do
+    page = PageFileField.new @browser, true
+    image_path = File.dirname(__FILE__) + '/image.png'
+    page.upload = image_path #set
+    page.upload.should == image_path #check
+    page.upload_file_field.exist?.should be_true
+  end
 end
