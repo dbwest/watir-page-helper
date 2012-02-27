@@ -17,10 +17,11 @@ describe "Watir Page Helper" do
   end
 
   it 'should support nesting of div and span elements' do
-    page = PageNestedDiv.new @browser, true
-    page.my_nice_div.should == "This div is unnamed and inside myNiceDiv.\nThis span is unnamed and inside myNiceDiv."
-    page.my_unnamed_div.should == 'This div is unnamed and inside myNiceDiv.'
-    page.my_unnamed_span.should == 'This span is unnamed and inside myNiceDiv.'
+    visit PageNestedDiv do |page|
+      page.my_nice_div.should == "This div is unnamed and inside myNiceDiv.\nThis span is unnamed and inside myNiceDiv."
+      page.my_unnamed_div.should == 'This div is unnamed and inside myNiceDiv.'
+      page.my_unnamed_span.should == 'This span is unnamed and inside myNiceDiv.'
+    end
   end
 
   it 'should support nesting without parameters' do
@@ -164,7 +165,7 @@ describe "Watir Page Helper" do
   it "should support adding two methods for a form" do
     page = PageForm.new @browser, true
     page.main_form.should == "First name:\nLast name:\nCar model:\nHonda\nMazda\nToyota\n\nDo you agree?: I agree\nHigh\nMedium\nLow"
-    page.main_form_form.exist?.should be_true
+    page.main_form_form.should exist
   end
 
   it "should support adding a method for a image" do

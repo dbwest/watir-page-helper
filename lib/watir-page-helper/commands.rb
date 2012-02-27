@@ -29,6 +29,7 @@ module WatirPageHelper
     end
 
     def page_class *args
+      return args.first.new WatirPageHelper.browser if args.first.is_a? Class
       page = WatirPageHelper::Pages::Page.new WatirPageHelper.browser
       require "watir-page-helper/pages/#{args.join '/'}"
       mod = WatirPageHelper::Pages
