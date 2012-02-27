@@ -3,14 +3,17 @@ require 'pages'
 require 'watir-page-helper/commands'
 
 describe "Watir Page Helper" do
+  include WatirPageHelper::Commands
+
   before(:all) { @browser = WatirPageHelper.create }
   after(:all) { @browser.close }
 
   it 'should support nesting of table elements' do
-    page = PageNestedTable.new @browser, true
-    page.test_table.rows.length.should == 1
-    page.test_table_row_1.should == "Test Table 2 Col 1 Test Table 2 Col 2"
-    page.test_table_row_1_cell_1.should == "Test Table 2 Col 1"
+    visit :page_nested_table do |page|
+      page.test_table.rows.length.should == 1
+      page.test_table_row_1.should == "Test Table 2 Col 1 Test Table 2 Col 2"
+      page.test_table_row_1_cell_1.should == "Test Table 2 Col 1"
+    end
   end
 
   it 'should support nesting of div and span elements' do

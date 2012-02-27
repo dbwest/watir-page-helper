@@ -6,7 +6,7 @@ class BasePageClass
   def initialize browser, visit = false
     @browser = browser
     goto if visit
-      
+
     expected_element if respond_to? :expected_element
     has_expected_title? if respond_to? :has_expected_title?
   end
@@ -81,13 +81,6 @@ class PageTable < BasePageClass
   table :test_table, :id => "myTable"
   row :test_table_row_1
   cell :test_table_row_1_cell_1
-end
-
-class PageNestedTable < BasePageClass
-  direct_url TEST_URL
-  table :test_table, :id => "mySecondTable"
-  row(:test_table_row_1) { |page| page.test_table.tr }
-  cell(:test_table_row_1_cell_1) { |page| page.test_table_row_1_row.td }
 end
 
 class PageDiv < BasePageClass
