@@ -6,8 +6,7 @@ require 'watir-page-helper'
 require 'watir-page-helper/commands'
 require 'watir-webdriver'
 
-module TestPage
+module CommonPage
   include WatirPageHelper
-
   direct_url "file://#{File.expand_path(File.dirname(__FILE__))}/test.html"
 end

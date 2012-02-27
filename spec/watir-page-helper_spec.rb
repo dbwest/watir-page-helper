@@ -8,7 +8,7 @@ describe "Watir Page Helper" do
   after(:all) { @browser.close }
 
   it 'should support nesting of table elements' do
-    visit :page_nested_table do |page|
+    visit :nested_table_page do |page|
       page.test_table.rows.length.should == 1
       page.test_table_row_1.should == "Test Table 2 Col 1 Test Table 2 Col 2"
       page.test_table_row_1_cell_1.should == "Test Table 2 Col 1"

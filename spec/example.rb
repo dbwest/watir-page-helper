@@ -1,27 +1,19 @@
 require 'watir-webdriver'
-require 'watir-page-helper'
+require 'watir-page-helper/commands'
 
-class MyPage
-  include WatirPageHelper
-
+class MyPage < WatirPageHelper::Page
   direct_url "http://www.google.com"
   expected_element :text_field, :name => "q"
   expected_title "Google"
   text_field :search_box, :name => "q"
   button :search, :name => "btnG"
-
-  def initialize browser, visit = false
-    @browser = browser
-    goto if visit
-
-    expected_element if respond_to? :expected_element
-    has_expected_title? if respond_to? :has_expected_title?
-  end
-
 end
 
-browser = Watir::Browser.new :firefox
-page = MyPage.new browser, true
-page.search_box = "Watirmelon"
-page.search
-browser.close 
+include WatirPageHelper::Commands
+
+WatirPageHelper.create
+visit MyPage do |page|
+  page.search_box = "Watirmelon"
+  page.search
+end
+WatirPageHelper.close

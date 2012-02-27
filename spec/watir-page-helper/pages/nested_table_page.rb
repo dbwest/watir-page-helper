@@ -1,6 +1,6 @@
-module WatirPageHelper::PageNestedTable
+module WatirPageHelper::NestedTablePage
   extend WatirPageHelper::ClassMethods
-  include TestPage
+  include CommonPage
 
   table :test_table, :id => "mySecondTable"
   row(:test_table_row_1) { |page| page.test_table.tr }
