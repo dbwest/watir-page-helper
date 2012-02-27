@@ -1,4 +1,4 @@
-module WatirPageHelper::Pages::PageNestedTable
+module WatirPageHelper::PageNestedTable
   extend WatirPageHelper::ClassMethods
   include TestPage
 

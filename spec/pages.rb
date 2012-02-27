@@ -16,8 +16,8 @@ class BasePageClass
   end
 end
 
-class PageIncorrectTitle < BasePageClass
-  direct_url TEST_URL
+class PageIncorrectTitle < WatirPageHelper::Page
+  direct_url "file://#{File.expand_path(File.dirname(__FILE__))}/test.html"
   expected_title "not expected"
 end
 

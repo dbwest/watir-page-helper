@@ -1,6 +1,5 @@
 require 'helper'
 require 'pages'
-require 'watir-page-helper/commands'
 
 describe "Watir Page Helper" do
   include WatirPageHelper::Commands
@@ -32,7 +31,7 @@ describe "Watir Page Helper" do
   end
 
   it "should raise an error when the expected literal title doesn't match actual title" do
-    lambda { PageIncorrectTitle.new @browser, true }.should raise_error("Expected title 'not expected' instead of 'HTML Document Title'")
+    lambda { visit PageIncorrectTitle }.should raise_error("Expected title 'not expected' instead of 'HTML Document Title'")
   end
 
   it "should raise an error when the expected title pattern doesn't match actual title" do

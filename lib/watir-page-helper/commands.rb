@@ -2,16 +2,15 @@ require 'watir-webdriver'
 require 'forwardable'
 
 module WatirPageHelper
-  module Pages
-    class Page
-      attr_reader :browser
-      extend Forwardable
+  class Page
+    include WatirPageHelper
+    extend Forwardable
+    attr_reader :browser
 
-      def_delegators :@browser, :title, :url, :html, :status, :refresh, :back
+    def_delegators :@browser, :title, :url, :html, :status, :refresh, :back
 
-      def initialize browser
-        @browser = browser
-      end
+    def initialize browser
+      @browser = browser
     end
   end
 
@@ -30,9 +29,9 @@ module WatirPageHelper
 
     def page_class *args
       return args.first.new WatirPageHelper.browser if args.first.is_a? Class
-      page = WatirPageHelper::Pages::Page.new WatirPageHelper.browser
+      page = WatirPageHelper::Page.new WatirPageHelper.browser
       require "watir-page-helper/pages/#{args.join '/'}"
-      mod = WatirPageHelper::Pages
+      mod = WatirPageHelper
       args.each do |name|
         mod = mod.const_get classify name
       end
@@ -42,13 +41,17 @@ module WatirPageHelper
 
     def on *args
       page_class(*args).tap do |p|
+        p.expected_element if p.respond_to? :expected_element
+        p.has_expected_title? if p.respond_to? :has_expected_title?
         yield p if block_given?
       end
     end
 
     def visit *args
-      on(*args) do |p|
+      page_class(*args).tap do |p|
         p.goto
+        p.expected_element if p.respond_to? :expected_element
+        p.has_expected_title? if p.respond_to? :has_expected_title?
         yield p if block_given?
       end
     end
