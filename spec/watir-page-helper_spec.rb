@@ -1,8 +1,9 @@
 require 'helper'
 require 'pages'
+require 'watir-page-helper/commands'
 
 describe "Watir Page Helper" do
-  before(:all) { @browser = Watir::Browser.new :firefox  }
+  before(:all) { @browser = WatirPageHelper.create }
   after(:all) { @browser.close }
 
   it 'should support nesting of table elements' do

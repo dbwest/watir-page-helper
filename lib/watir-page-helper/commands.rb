@@ -1,3 +1,4 @@
+require 'watir-webdriver'
 require 'forwardable'
 
 module WatirPageHelper
@@ -16,6 +17,10 @@ module WatirPageHelper
 
   class << self
     attr_accessor :browser
+
+    def create
+      @browser = ::Watir::Browser.new ENV['WEBDRIVER'] || :firefox
+    end
   end
 
   module Commands
