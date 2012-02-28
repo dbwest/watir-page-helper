@@ -1,38 +1,60 @@
 # watir-page-helper
 
-This is a page helper for Watir-WebDriver that allows use easy access to elements.
+This is a page helper for Watir-WebDriver that allows use easy access to elements, and a way to interactively create page objects.
 
-## Example
+## Example using Page Classes
 
 Simply define a page such as:
 
     require 'watir-webdriver'
-    require 'watir-page-helper'
+    require 'watir-page-helper/commands'
 
-    class MyPage
-      include WatirPageHelper
-
-      direct_url 'http://www.google.com'
-      expected_element :text_field, :name => 'q'
-      expected_title 'Google'
-      text_field :search_box, :name => 'q'
-      button :search, :name => 'btnG'
-
-      def initialize browser, visit = false
-        @browser = browser
-        goto if visit
-
-        expected_element if respond_to? :expected_element
-        has_expected_title? if respond_to? :has_expected_title?
-      end
-
+    class MyPage < WatirPageHelper::Page
+      direct_url "http://www.google.com"
+      expected_element :text_field, :name => "q"
+      expected_title "Google"
+      text_field :search_box, :name => "q"
+      button :search, :name => "btnG"
     end
 
-    browser = Watir::Browser.new :chrome
-    page = MyPage.new browser, true
-    page.search_box = 'Watirmelon' #This method is created by WatirPageHelper
-    page.search #This method is created by WatirPageHelper also
-    browser.close
+    include WatirPageHelper::Commands
+
+    WatirPageHelper.create
+    visit MyPage do |page|
+      page.search_box = "Watirmelon"
+      page.search
+    end
+    WatirPageHelper.close
+
+## Example using Page Modules
+
+First create a file under watir-page-helper/pages named my_page.rb
+
+    module WatirPageHelper::MyPage
+      extend WatirPageHelper::ClassMethods
+
+      direct_url "http://www.google.com"
+      expected_element :text_field, :name => "q"
+      expected_title "Google"
+      text_field :search_box, :name => "q"
+      button :search, :name => "btnG"
+    end
+
+Now, you can simply use this page in your script
+
+    $: << File.dirname(__FILE__)
+    require 'watir-webdriver'
+    require 'watir-page-helper/commands'
+
+    include WatirPageHelper::Commands
+
+    WatirPageHelper.create
+    visit :my_page do |page|
+      page.search_box = "Watirmelon"
+      page.search
+    end
+    WatirPageHelper.close
+
 
 ## Main Methods that the Watir Page Helper provides
 
@@ -61,5 +83,4 @@ Thanks to Jeff Morgan: http://www.cheezyworld.com/ and Mark Ryall http://mark.ry
 
 ## Copyright
 
-Copyright (c) 2011 Alister Scott. See LICENSE.txt for
-further details.
+Copyright (c) 2011 Alister Scott & Mark Ryall. See LICENSE.txt for further details.

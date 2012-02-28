@@ -1,21 +1,3 @@
-#class BasePageClass
-#  include WatirPageHelper
-#
-#  TEST_URL = "file://#{File.expand_path(File.dirname(__FILE__))}/test.html"
-#
-#  def initialize browser, visit = false
-#    @browser = browser
-#    goto if visit
-#
-#    expected_element if respond_to? :expected_element
-#    has_expected_title? if respond_to? :has_expected_title?
-#  end
-#
-#  def method_missing sym, *args, &block
-#    @browser.send sym, *args, &block
-#  end
-#end
-
 class BaseTestPage < WatirPageHelper::Page
   TEST_URL = "file://#{File.expand_path(File.dirname(__FILE__))}/test.html"
   direct_url TEST_URL
