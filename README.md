@@ -83,4 +83,4 @@ Thanks to Jeff Morgan: http://www.cheezyworld.com/ and Mark Ryall http://mark.ry
 
 ## Copyright
 
-Copyright (c) 2011 Alister Scott & Mark Ryall. See LICENSE.txt for further details.
+Copyright (c) 2011 Alister Scott & Mark Ryall. See LICENSE.txt for further details. 
