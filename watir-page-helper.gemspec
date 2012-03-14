@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.licenses = ['MIT']
 
-  s.add_runtime_dependency 'ripl'
   s.add_runtime_dependency 'watir-webdriver'
 
   s.add_development_dependency 'rake'
