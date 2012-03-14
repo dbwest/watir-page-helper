@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = "watir-page-helper"
-  s.version     = "1.0.0"
+  s.version     = "1.0.1"
   s.authors     = ["Alister Scott","Mark Ryall"]
   s.email       = ["alister.scott@gmail.com"]
   s.homepage    = "https://github.com/alisterscott/watir-page-helper"
