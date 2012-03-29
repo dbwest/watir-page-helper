@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = "watir-page-helper"
-  s.version     = "1.0.1"
+  s.version     = "1.0.2"
   s.authors     = ["Alister Scott","Mark Ryall"]
   s.email       = ["alister.scott@gmail.com"]
   s.homepage    = "https://github.com/alisterscott/watir-page-helper"
@@ -22,4 +22,15 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'cucumber'
+
+  s.post_install_message = %{
+    (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::)
+
+    Watir-page-helper has now been END-OF_LIFED.
+    You should now use the page-object gem.
+    Please see this blog post for further details: http://wp.me/p98zF-k0
+
+    (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::)
+
+}
 end
