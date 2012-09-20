@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = "watir-page-helper"
-  s.version     = "1.0.2"
+  s.version     = "1.0.3"
   s.authors     = ["Alister Scott","Mark Ryall"]
   s.email       = ["alister.scott@gmail.com"]
   s.description = %q{DEPRECATED - This is a page helper for Watir-WebDriver that allows use easy access to elements. See watirwebdriver.com}
