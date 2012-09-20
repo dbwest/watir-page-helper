@@ -1,3 +1,5 @@
+THIS GEM HAS BEEN DEPRECATED.
+
 # watir-page-helper
 
 This is a page helper for Watir-WebDriver that allows use easy access to elements, and a way to interactively create page objects.
