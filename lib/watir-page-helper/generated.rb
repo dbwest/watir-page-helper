@@ -384,5 +384,15 @@ module WatirPageHelper
     def frame name, identifier=nil, &block
       create_element_getter "#{name}", identifier, __method__, block
     end
+    
+  def hidden_field name, identifier=nil, &block
+      define_method(name) do
+        self.send("#{name}_hidden_field").value
+      end
+      define_method("#{name}=") do |value|
+        self.send("#{name}_hidden_field").set value
+      end
+      create_element_getter "#{name}_hidden_field", identifier, __method__, block
+    end
   end
 end
